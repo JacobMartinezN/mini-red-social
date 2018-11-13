@@ -3,8 +3,6 @@ import { Http , Headers} from '@angular/http';
 import { User} from '../interfaces/user.interface';
 import { map }  from 'rxjs/operators';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
