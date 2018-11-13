@@ -9,7 +9,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 const routes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'dashboard' , component: DashboardComponent},
+    { path: 'dashboard/:id' , component: DashboardComponent},
     { path: '**', pathMatch: 'full', redirectTo: 'login' }
 ];
 

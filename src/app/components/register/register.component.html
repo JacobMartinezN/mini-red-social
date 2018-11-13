@@ -8,7 +8,7 @@
             <h2>Registro</h2>
         </div>
         <div class="form-group">
-          <input [(ngModel)]="user.nombre" name="name" type="text" class="form-control" id="name"  placeholder="Ingresar nombre" [ngClass]="{ 'is-invalid': forma.submitted && name.invalid }" required #name="ngModel">
+          <input [(ngModel)]="user.nombre" name="name" type="text" class="form-control" id="name"  placeholder="Ingresar nombre" [ngClass]="{ 'is-invalid': forma.submitted && name.invalid }" #name="ngModel" required >
           <div *ngIf="forma.submitted && name.invalid" class="invalid-feedback">
             <div *ngIf="name.errors.required">El nombre es requerido</div>
           </div>

@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
   guardar(){
     console.log(this.user)
     this._userService.nuevoUsuario(this.user).subscribe(data => {
-      this.router.navigate(['/dashboard', data['name']])
+      this.router.navigate(['/dashboard', data.name])
     },
     error => console.error(error))
   }
