@@ -1,0 +1,32 @@
+
+<div class="card card-sign">
+
+  <div class="row">
+    <div class="col-md-12">
+      <form (ngSubmit)="guardar()" #forma="ngForm">
+        <div class="title-sign">
+            <h2>Registro</h2>
+        </div>
+        <div class="form-group">
+          <input [(ngModel)]="user.nombre" name="nombre" type="text" class="form-control" id="name"  placeholder="Ingresar nombre" required>
+        </div>
+        <div class="form-group">
+          <input [(ngModel)]="user.correo" name="correo" type="email" class="form-control" id="email"  placeholder="Ingresar correo" required>
+        </div>
+        <div class="form-group">
+          <input [(ngModel)]="user.contrasenia" name="contrasenia" type="password" class="form-control" id="password" placeholder="Contraseña" required>
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" id="repeatpassword" placeholder="Repetir contraseña" required>
+        </div>
+        
+        <button [disabled]="!forma.valid" type="submit" class="btn btn-primary">Registrar</button>
+      </form>
+    </div>
+    <div class="col-md-12">
+      <h2>imagen</h2>
+      <button [routerLink]="['login']" type="button" class="btn btn-link">Ya tengo una cuenta</button>
+    </div>
+  </div>
+  
+</div>
