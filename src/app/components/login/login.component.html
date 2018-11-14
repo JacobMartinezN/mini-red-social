@@ -1,60 +1,38 @@
-
-<!-- <div class="card card-sign">
-
-    <div class="row">
-      <div class="col-md-6">
-        <form (ngSubmit)="forma.form.valid" #forma="ngForm" novalidate>
-          <div class="title-sign">
-              <h2>Registro</h2>
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="user.correo" name="email" type="email" class="form-control" id="email"  placeholder="Ingresar correo" [ngClass]="{ 'is-invalid': forma.submitted && email.invalid }" required email #email="ngModel">
-            <div *ngIf="forma.submitted && email.invalid" class="invalid-feedback">
-                <div *ngIf="email.errors.required">El correo es requerido</div>
-                <div *ngIf="email.errors.email">Se debe ingresar un correo valido</div>
-            </div>
-          </div>
+<section class="sign-in">
+  <div class="container">
+    <div class="signin-content">
+      <div class="signin-image">
+        <figure><img src="../../../assets/images/signin-image.jpg" alt="sing up image"></figure>
+        <a [routerLink]="['/register']" routerLinkActive="router-link-active"  class="signup-image-link">Crear una cuenta</a>
+      </div>
+      <div class="signin-form">
+          <h2 class="form-title">Ingresar</h2>
           
-          <div class="form-group">
-            <input [(ngModel)]="user.contrasenia" name="password" type="password" class="form-control" id="password" placeholder="Contraseña" [ngClass]="{ 'is-invalid': forma.submitted && password.invalid }" required minlength="7" #password="ngModel">
-            <div *ngIf="forma.submitted && password.invalid" class="invalid-feedback">
+          <form (ngSubmit)="signin()" #forma="ngForm" novalidate class="register-form" id="login-form">
+            <div class="form-group">
+              <div *ngIf="!found" class="invalid-feedback">
+                <div>Usuario no encontrado</div>
+              </div>
+              <label for="email"><i class="zmdi zmdi-email"></i></label>
+              <input [(ngModel)]="auth.email" name="email" type="email" id="email"  placeholder="Ingresar correo" [ngClass]="{ 'is-invalid': forma.submitted && email.invalid }" required email #email="ngModel"/>
+              <div *ngIf="forma.submitted && email.invalid" class="invalid-feedback">
+                  <div *ngIf="email.errors.required">El correo es requerido</div>
+                  <div *ngIf="email.errors.email">Se debe ingresar un correo valido</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+              <input [(ngModel)]="auth.password" type="password" name="your_pass" id="your_pass" placeholder="Contraseña" [ngClass]="{ 'is-invalid': forma.submitted && password.invalid }" required minlength="7" #password="ngModel"/>
+              <div *ngIf="forma.submitted && password.invalid" class="invalid-feedback">
                 <div *ngIf="password.errors.required">La contraseña es rquerida</div>
                 <div *ngIf="password.errors.minlength">La contraseña debe tener almenos 7 caracteres</div>
+              </div>
             </div>
-          </div>
-          <button type="submit" class="btn btn-primary">Registrar</button><br>
-        </form>
-      </div>
-      <div class="col-md-6">
-        <h2>imagen</h2>
-        <button [routerLink]="['register']" type="button" class="btn btn-link">No tengo una cuenta</button>
-      </div>
-    </div>
-    
-  </div> -->
-  
-
-  <div class="card card-sign">
-
-      <div class="row">
-        <div class="col-md-6">
-          <form (ngSubmit)="signin()" #forma="ngForm" novalidate>
-            <div class="title-sign">
-                <h2>Registro</h2>
+            <div class="form-group form-button">
+                <input type="submit" name="signin" id="signin" class="form-submit" value="Ingresar"/>
             </div>
-            <div class="form-group">
-              <input [(ngModel)]="auth.email" name="email" type="email" class="form-control" id="email"  placeholder="Ingresar correo" [ngClass]="{ 'is-invalid': forma.submitted && email.invalid }" required email #email="ngModel">
-            </div>
-            
-            <div class="form-group">
-              <input [(ngModel)]="auth.password" name="password" type="password" class="form-control" id="password" placeholder="Contraseña" [ngClass]="{ 'is-invalid': forma.submitted && password.invalid }" required minlength="7" #password="ngModel">
-            </div>
-            <button type="submit" class="btn btn-primary">Ingresar</button><br>
           </form>
         </div>
-        <div class="col-md-6">
-          <h2>imagen</h2>
-          <button [routerLink]="['register']" type="button" class="btn btn-link">No tengo una cuenta</button>
-        </div>
       </div>
     </div>
+  </section>

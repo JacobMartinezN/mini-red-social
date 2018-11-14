@@ -1,40 +1,13 @@
 import { UserClass, Auth } from './../models/user.model';
 import { Injectable } from '@angular/core';
 import { Http , Headers} from '@angular/http';
-import { User} from '../interfaces/user.interface';
-import { map }  from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  usersURL:string = "https://socialred-4e146.firebaseio.com/user.json"
-  userURL:string = "https://socialred-4e146.firebaseio.com/user/"
-
-  
-
   constructor( private http:Http ) { }
-
-  nuevoUsuario( user:User){
-    let body = JSON.stringify(user)
-    let headers = new Headers({
-      'Content-Type':'application/json'
-    })
-
-    return this.http.post( this.usersURL, body, {headers}).pipe(map( res => {
-      console.log(res.json())
-      return res.json()
-    }))
-  }
-
-  getUser( key$:string){
-    let url = `${this.userURL}/${ key$}.json`
-    return this.http.get( url ).pipe(map( res => {
-      res.json()
-    }))
-  }
-
 
   getUsers(){
     let users:UserClass[];
