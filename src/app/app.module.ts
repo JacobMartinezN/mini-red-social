@@ -16,9 +16,13 @@ import {APP_ROUTING} from './app.routes'
 
 //services
 import { UserService } from './services/user.service';
+import { ItemsService } from '../app/services/items.service';
+
 import { InformationBarComponent } from './components/information-bar/information-bar.component';
 import { PublicationComponent } from './components/publication/publication.component';
 import { ItemComponent } from './components/item/item.component';
+import { PublicationSectionComponent } from './components/publication-section/publication-section.component';
+import { KeysPipe } from './pipes/keys.pipe';
 
 
 @NgModule({
@@ -30,7 +34,9 @@ import { ItemComponent } from './components/item/item.component';
     MustMatchDirective,
     InformationBarComponent,
     PublicationComponent,
-    ItemComponent
+    ItemComponent,
+    PublicationSectionComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,
@@ -39,7 +45,8 @@ import { ItemComponent } from './components/item/item.component';
     APP_ROUTING
   ],
   providers: [
-    UserService
+    UserService,
+    ItemsService
   ],
   bootstrap: [AppComponent]
 })

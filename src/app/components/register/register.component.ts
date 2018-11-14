@@ -17,11 +17,12 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
+    this._userService.signout()
   }
 
   register(){
     this._userService.register(this.user);
-    this._userService.login(this.user)
+    this._userService.login(this.user);
     this.router.navigate(['/dashboard'])
     
   }

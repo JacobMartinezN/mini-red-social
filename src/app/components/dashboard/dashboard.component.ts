@@ -1,3 +1,4 @@
+import { Auth } from './../../models/user.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -5,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit() {

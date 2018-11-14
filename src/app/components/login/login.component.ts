@@ -13,15 +13,21 @@ export class LoginComponent implements OnInit {
   public found:boolean = true;
 
   constructor(private _userService:UserService, private router:Router) {
-    this.auth = new Auth('jacob@gmail.com', '12345678');
+    this.auth = new Auth('jacob@gmail.com', '12345678', 'Jacob');
   }
 
   ngOnInit() {
+    this._userService.signout()
   }
 
   signin(){
     this.found = this._userService.login(this.auth);
-    this.router.navigate(['/dashboard'])
+    if(this.found == false) {
+      this.router.navigate(['/login'])
+    } else{
+      this.router.navigate(['/dashboard'])
+    }
+    
 
   }
 

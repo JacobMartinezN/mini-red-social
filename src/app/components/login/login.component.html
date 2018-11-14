@@ -9,7 +9,7 @@
           <h2 class="form-title">Ingresar</h2>
           
           <form (ngSubmit)="signin()" #forma="ngForm" novalidate class="register-form" id="login-form">
-            <div class="form-group">
+            <div class="form-group">  
               <div *ngIf="!found" class="invalid-feedback">
                 <div>Usuario no encontrado</div>
               </div>
