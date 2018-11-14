@@ -1,5 +1,5 @@
 
-<div class="card card-sign">
+<!-- <div class="card card-sign">
 
   <div class="row">
     <div class="col-md-6">
@@ -45,4 +45,55 @@
     </div>
   </div>
   
+</div> -->
+
+
+<section class="signup">
+<div class="container">
+    <div class="signup-content">
+        <div class="signup-form">
+            <h2 class="form-title">Registro</h2>
+            <form (ngSubmit)="forma.form.valid && register()" #forma="ngForm"  [mustMatch]="['password', 'confirmPassword']" class="register-form" id="register-form" novalidate>
+                <div class="form-group">
+                    <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                    <input [(ngModel)]="user.name" name="name" type="text" id="name" placeholder="Ingresar nombre" [ngClass]="{ 'is-invalid': forma.submitted && name.invalid }" #name="ngModel" required />
+                    <div *ngIf="forma.submitted && name.invalid" class="invalid-feedback">
+                        <div *ngIf="name.errors">El nombre es requerido</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email"><i class="zmdi zmdi-email"></i></label>
+                    <input [(ngModel)]="user.email" name="email" type="email" id="email"  placeholder="Ingresar correo" [ngClass]="{ 'is-invalid': forma.submitted && email.invalid }" required email #email="ngModel"/>
+                    <div *ngIf="forma.submitted && email.invalid" class="invalid-feedback">
+                        <div *ngIf="email.errors.required">El correo es requerido</div>
+                        <div *ngIf="email.errors.email">Se debe ingresar un correo valido</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                    <input [(ngModel)]="user.password" name="password" type="password" id="password" placeholder="Contraseña" [ngClass]="{ 'is-invalid': forma.submitted && password.invalid }" required minlength="7" #password="ngModel"/>
+                    <div *ngIf="forma.submitted && password.invalid" class="invalid-feedback">
+              <div *ngIf="password.errors.required">La contraseña es rquerida</div>
+              <div *ngIf="password.errors.minlength">La contraseña debe tener almenos 7 caracteres</div>
+          </div>
+                </div>
+                <div class="form-group">
+                    <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                    <input [(ngModel)]="user.confirmPassword" type="password" name="re_pass" id="re_pass" placeholder="Repetir contraseña" [ngClass]="{ 'is-invalid': forma.submitted && confirmPassword.invalid }" required #confirmPassword="ngModel"/>
+                    <div *ngIf="forma.submitted && confirmPassword.invalid" class="invalid-feedback">
+                        <div *ngIf="confirmPassword.errors.required">Es necesario confirmar la contraseña</div>
+                        <div *ngIf="confirmPassword.errors.mustMatch">Las contraseñas no coinciden</div>
+                    </div>
+                </div>
+                <div class="form-group form-button">
+                    <input type="submit" name="signup" id="signup" class="form-submit" value="Registrar"/>
+                </div>
+            </form>
+        </div>
+        <div class="signup-image">
+            <figure><img src="../../../assets/images/signup-image.jpg" alt="sing up image"></figure>
+            <a [routerLink]="['/login']" class="signup-image-link">Ya tengo una cuenta</a>
+        </div>
+    </div>
 </div>
+</section>

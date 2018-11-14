@@ -16,6 +16,9 @@ import {APP_ROUTING} from './app.routes'
 
 //services
 import { UserService } from './services/user.service';
+import { InformationBarComponent } from './components/information-bar/information-bar.component';
+import { PublicationComponent } from './components/publication/publication.component';
+import { ItemComponent } from './components/item/item.component';
 
 
 @NgModule({
@@ -24,7 +27,10 @@ import { UserService } from './services/user.service';
     RegisterComponent,
     LoginComponent,
     DashboardComponent,
-    MustMatchDirective
+    MustMatchDirective,
+    InformationBarComponent,
+    PublicationComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,

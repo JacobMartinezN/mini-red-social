@@ -1,15 +1,25 @@
+import { UserService } from './../../services/user.service';
+import { Auth } from './../../models/user.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  public auth:Auth;
+  public found:boolean;
+
+  constructor(private _userService:UserService) {
+    this.auth = new Auth('jacob@gmail.com', '12345678');
+  }
 
   ngOnInit() {
+  }
+
+  signin(){
+    this.found = this._userService.login(this.auth);
   }
 
 }

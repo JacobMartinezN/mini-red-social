@@ -1,30 +1,27 @@
+import { UserClass } from './../../models/user.model';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { User } from '../../interfaces/user.interface';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  templateUrl: './register.component.html'
 })
 export class RegisterComponent implements OnInit {
-  user:User ={
-    nombre:"",
-    correo:"",
-    contrasenia:""
+  
+  public user:UserClass;
+
+  constructor( private _userService: UserService, private router:Router) {
+    this.user = new UserClass(null, 'Jacob', 'jacob@gmail.com', '12345678');
   }
-  constructor( private _userService: UserService, private router:Router) { }
 
   ngOnInit() {
   }
-  guardar(){
-    console.log(this.user)
-    this._userService.nuevoUsuario(this.user).subscribe(data => {
-      this.router.navigate(['/dashboard', data.name])
-    },
-    error => console.error(error))
+
+  register(){
+    this._userService.register(this.user);
+    
   }
 
 }

@@ -4,5 +4,4 @@ export interface User{
     contrasenia:string;
     confirmarContrasenia?:string;
     key$?:string;
-
 }
