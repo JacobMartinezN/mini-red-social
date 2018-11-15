@@ -17,6 +17,7 @@ import {APP_ROUTING} from './app.routes'
 //services
 import { UserService } from './services/user.service';
 import { ItemsService } from '../app/services/items.service';
+import { LikeService } from '../app/services/like.service';
 
 import { InformationBarComponent } from './components/information-bar/information-bar.component';
 import { PublicationComponent } from './components/publication/publication.component';
@@ -46,7 +47,8 @@ import { KeysPipe } from './pipes/keys.pipe';
   ],
   providers: [
     UserService,
-    ItemsService
+    ItemsService,
+    LikeService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,7 @@
 
 
   <app-information-bar></app-information-bar>
-  <app-publication></app-publication>
-  <app-publication-section></app-publication-section>
+  <app-publication (up)="updatePublications($event)"></app-publication>
+  <app-publication-section [update]="upub" (changeS)="changeStatus($event)"></app-publication-section>
   
 

@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
   
+  public upub:boolean;
   constructor() { }
 
   ngOnInit() {
   }
 
+  updatePublications(){
+    this.upub = true;
+  }
+
+  changeStatus(any:any){
+    this.upub = false;
+  }
 }

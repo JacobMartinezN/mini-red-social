@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
 })
 export class ItemsService {
   itemsUrl="https://socialred-4e146.firebaseio.com/items.json"
-  itemUrl="https://socialred-4e146.firebaseio.com/items/"
+  itemUrl="https://socialred-4e146.firebaseio.com/items"
 
   constructor( private http:Http ) { }
 
@@ -26,12 +26,19 @@ export class ItemsService {
   }
 
   updateItem( item:Item, key$:string ){
-    let body = JSON.stringify(item);
+    let url = `${this.itemUrl}/${key$}.json`;
+    let bodytoSend = {
+      content: item.content,
+      email: item.email,
+      id: item.id,
+      likes: item.likes,
+      owner: item.owner
+    }
+    let body = JSON.stringify(bodytoSend);
     let headers = new Headers({
       'Content-Type':'application/json'
     });
-    let url = `${this.itemUrl}/${key$}.json`
-    return this.http.put( url, body, {headers}).pipe(map( res => {
+    return this.http.put(url, body, {headers}).pipe(map( res => {
       return res.json()
     }))
   }
@@ -44,5 +51,14 @@ export class ItemsService {
   getItems(){
     return this.http.get(this.itemsUrl).pipe(map( res => res.json()))
   }
+  
+  deleteItem( key$:string){
+    let url = `${ this.itemUrl}/${key$}.json`;
+    console.log(url);
+    return this.http.delete(url).pipe(map( res => {
+      res.json()
+    }))  
+  }
+
 }
 
