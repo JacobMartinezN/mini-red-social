@@ -23,7 +23,7 @@ import { InformationBarComponent } from './components/information-bar/informatio
 import { PublicationComponent } from './components/publication/publication.component';
 import { ItemComponent } from './components/item/item.component';
 import { PublicationSectionComponent } from './components/publication-section/publication-section.component';
-import { KeysPipe } from './pipes/keys.pipe';
+
 
 
 @NgModule({
@@ -36,8 +36,7 @@ import { KeysPipe } from './pipes/keys.pipe';
     InformationBarComponent,
     PublicationComponent,
     ItemComponent,
-    PublicationSectionComponent,
-    KeysPipe
+    PublicationSectionComponent
   ],
   imports: [
     BrowserModule,

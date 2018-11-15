@@ -1,22 +1,21 @@
 
-  <div class="post-outer-container">
-      <div class="post-container">
-          <div class="post-details">
-              <div class="user-container">
-                  <h3 class="user-container__user">{{item.owner}} - ({{item.email}}) <span><button *ngIf="item.email == owner" class="form-submit" (click)="toEdit()"><i class="fa fa-edit"></i></button></span></h3>
-              </div>
-              <div class="clear"></div>
-          </div>
-          <p class="post-content" *ngIf="!isEdit">{{item.content}}</p>
-          <textarea *ngIf="isEdit" id="lined" cols="30" rows="3" [(ngModel)]="item.content"></textarea>
-          <div class="post-actions">
-              <span class="post-actions__like"><a href="javascript:void(0)" (click)="like()"><i class="fa fa-thumbs-up" aria-hidden="true"></i>Like</a> ({{item.likes}})</span>
-              <!-- <span class="post-actions__share"><a href="javascript:;"><i class="fa fa-share-alt" aria-hidden="true"></i>2</a></span> -->
-              <div class="form-group form-button" *ngIf="item.email == owner">
-                    <button (click)="delete()" type="button" name="signup" id="signup" class="form-submit">Eliminar</button>
-                </div>
-                <div class="form-group form-button" *ngIf="item.email == owner && isEdit">
-                    <button (click)="update()" type="button" name="edit" id="edit" class="form-submit">Editar</button>
-                </div>
-          </div>
-      </div>
+<div class="post-outer-container">
+<div class="post-container">
+    <div class="post-details">
+        <div class="user-container">
+            <h3 class="user-container__user">{{item.owner}} - ({{item.email}}) <span><button *ngIf="item.email == owner" class="form-submit" (click)="toEdit()"><i class="fa fa-edit"></i></button></span></h3>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <p class="post-content" *ngIf="!isEdit">{{item.content}}</p>
+    <textarea *ngIf="isEdit" id="lined" cols="30" rows="3" [(ngModel)]="item.content"></textarea>
+    <div class="post-actions">
+        <span class="post-actions__like"><a href="javascript:void(0)" (click)="like()"><i class="fa fa-thumbs-up" aria-hidden="true"></i>Like</a> ({{item.likes}})</span>
+        <div class="form-group form-button" *ngIf="item.email == owner">
+            <button (click)="delete()" type="button" name="signup" id="signup" class="form-submit">Eliminar</button>
+        </div>
+        <div class="form-group form-button" *ngIf="item.email == owner && isEdit">
+            <button (click)="update()" type="button" name="edit" id="edit" class="form-submit">Editar</button>
+        </div>
+    </div>
+</div>
