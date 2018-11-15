@@ -21,17 +21,14 @@ export class PublicationSectionComponent implements OnInit, OnChanges {
     
   ngOnInit() {
     this.getItems();
-    console.log('entra a ngoninit');
   }
 
   ngOnChanges(){
     this.getItems();
-    //console.log('entra a ngonchanges');
   }
 
   getItems(){
     this._itemsService.getItems().subscribe( data => {
-      //console.log(data)
       this.items = [];
       this.items= new Array();
       for( let key$ in data ){
@@ -41,7 +38,6 @@ export class PublicationSectionComponent implements OnInit, OnChanges {
       }
       this.update = false;
       this.changeS.emit(false);
-      //console.log(this.items)
     })
   }
 

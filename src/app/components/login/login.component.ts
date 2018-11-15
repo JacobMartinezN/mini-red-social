@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   public found:boolean = true;
 
   constructor(private _userService:UserService, private router:Router) {
-    this.auth = new Auth('jacob@gmail.com', '12345678');
+    this.auth = new Auth('jacob@gmail.com', '12345678', 'Jacob');
   }
 
   ngOnInit() {

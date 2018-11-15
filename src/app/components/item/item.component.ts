@@ -27,8 +27,8 @@ export class ItemComponent implements OnInit {
   }
 
   update(){
-    console.log(this.item);
     this._itemsService.updateItem(this.item, this.item.keys$).subscribe((res:any)=>{
+      console.log(res)
       if(res){
         this.isEdit = false;
         this.updateList.emit(null);

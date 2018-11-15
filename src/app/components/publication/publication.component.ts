@@ -19,7 +19,6 @@ export class PublicationComponent implements OnInit {
     likes: 0,
     email: "",
     owner:""
-
   }
   constructor( private _itemsService: ItemsService, private _userService:UserService) { }
 
@@ -28,11 +27,9 @@ export class PublicationComponent implements OnInit {
   }
 
   saveItem(){
-    console.log(this.item)
     this.item.email = this._userService.getAuth().email;
     this.item.owner = this._userService.getAuth().name;
     this._itemsService.registerItem(this.item).subscribe(data => {
-      console.log(data.name)
       this.up.emit(true);
     }, error => console.error(error));
     

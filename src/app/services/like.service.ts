@@ -60,7 +60,6 @@ export class LikeService {
       let likes = this.getAllLikes();
       likes.forEach((lk)=>{
         if(lk.publication == publication){
-          //likes.splice(idx);
           likes = likes.filter(i=> i!= lk);
         }
       });
@@ -68,11 +67,3 @@ export class LikeService {
     }
   }
 }
-/*
-elemToDelete = 4;
-arr = [1,2,3,4,5,6,7,8,9];
-
-arr = arr.filter(i=> i!=elemToDelete);
-
-mi nuevo arr: [1,2,3,5,6,7,8,9];
-*/

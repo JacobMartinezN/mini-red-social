@@ -17,7 +17,7 @@ export class InformationBarComponent implements OnInit {
 
   ngOnInit() {
     this.auth = this._userService.getAuth()
-    this.name = this.auth.email
+    this.name = this.auth.name
   }
   
   

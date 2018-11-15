@@ -52,7 +52,7 @@ export class ItemsService {
     return this.http.get(this.itemsUrl).pipe(map( res => res.json()))
   }
   
-  deleteItem( key$:string){
+  deleteItem( key$:string ){
     let url = `${ this.itemUrl}/${key$}.json`;
     console.log(url);
     return this.http.delete(url).pipe(map( res => {
